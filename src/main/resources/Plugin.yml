@@ -1,3 +1,3 @@
-name: Essentials
-package:com.decker.Essentials.EssentialsPlugin
+name: EssentialLib
+package:com.decker.essentiallib.Plugin
 version: 0.0.1

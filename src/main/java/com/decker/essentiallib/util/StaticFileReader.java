@@ -1,4 +1,4 @@
-package com.decker.essentiallib.IO;
+package com.decker.essentiallib.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -6,10 +6,6 @@ import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.sound.sampled.AudioFormat.Encoding;
-
-import org.omg.CORBA.SystemException;
-
 public class StaticFileReader
 {
     private String pluginName;
@@ -26,6 +22,7 @@ public class StaticFileReader
 	return this.pluginName;
     }
 
+    @SuppressWarnings("restriction")
     public byte[] readBytes(String url) throws FileNotFoundException,IOException
     {
 	Matcher matcher=urlPattern.matcher(url);

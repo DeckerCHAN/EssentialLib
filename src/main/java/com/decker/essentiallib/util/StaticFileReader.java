@@ -31,7 +31,8 @@ public class StaticFileReader
 	    throw new FileNotFoundException("Cant find file by this url");
 	}
 	String filePath=matcher.group(0);
-	InputStream is = this.getClass().getResourceAsStream(String.format("/%s/%s",this.getPluginName(), filePath));
+	
+	InputStream is = getClass().getResourceAsStream(String.format("/%s/%s",this.getPluginName(), filePath));
 	return sun.misc.IOUtils.readFully(is, -1, true);
 	
     }

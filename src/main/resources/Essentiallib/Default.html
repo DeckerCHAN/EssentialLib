@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>WebCraft</title>
+    <!-- css -->
+    <link href="Style/bootstrap.css" rel="stylesheet" />
+    <link href="Style/font-awesome.min.css" rel="stylesheet" />
+    <link href="Style/template.min.css" rel="stylesheet" />
+    <link href="Style/fam-icons.css" rel="stylesheet" />
+    <!-- core libs -->
+    <script src="Script/jquery.js" type="text/javascript"></script>
+    <script src="Script/jquery.jpanelmenu.min.js" type="text/javascript"></script>
+    <script src="Script/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="Script/jquery.cookie.js" type="text/javascript"></script>
+    <script src="Script/bootstrap.js" type="text/javascript"></script>
+    <script src="Script/tooltip.js" type="text/javascript"></script>
+    <script src="Script/template.js" type="text/javascript"></script>
+    <script src="Script/function.js" type="text/javascript"></script>
+
+</head>
+<body data-color="grey" class="flat">
+
+    <div id="wrapper">
+        <div id="header">
+            <h1><a href="#">Web Craft</a></h1>
+        </div>
+        <!--User Messege-->
+        <div id="user-nav">
+            <ul id="signed-block" style="display:none;" class="btn-group">
+                    <li class="btn dropdown" id="menu-messages">
+                        <a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+                            <i class="icon icon-envelope"></i>
+                            <span class="text">About me</span>
+                            <span class="label label-important">0</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul id="dropdown-menu-content" class="dropdown-menu">
+                            <li>
+                                <a href="#">No Content</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="btn">
+                        <a onclick="document.logout();">
+                            <span class="text">Logout</span>
+                            <i class="icon icon-share-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+            <li id="signin-block" class="btn"><a title="" href="#" onclick="document.popLogin();"><i class="icon icon-share-alt"></i> <span class="text">Login</span></a></li>
+        </div>
+        <!--Sidebar-->
+        <div id="sidebar">
+            <div id="search">
+                <form >
+                    <input type="text" id="goto" placeholder="Search functions" autocomplete="off" />
+                    <button type="submit" class="tip-right" title="Go">
+                        <i class="icon-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <ul id="sidebar-content">
+               
+
+
+                <!--<li class="submenu active open">
+                    <a href="#">
+                        <i class="icon icon-wrench"></i>
+                        <span>Plugin Admin</span>
+                        <span class="label">2</span>
+                    </a>
+                    <ul>
+                        <li class="active"><a href="/admin/">Admin home</a></li>
+                        <li><a href="/admin/add-plugin/">Add a plugin</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+
+        </div>
+        <!--Content-->
+        <div id="content">
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="footer" class="col-xs-12">
+            <p>
+                The background of this web platform maintained by <a href="https://github.com/JeffreyChang">JeffreyChang</a> and <a href="https://github.com/DeckerCHAN">DerekChan</a> its fully open source project for everyone want fork it!
+            </p>
+
+            <p><a href="https://github.com/DeckerCHAN/StudentPerformanceServicePlus"><i class="icon-github"></i> github</a></p>
+        </div>
+    </div>
+    <div id="cover">
+      
+
+    </div>
+
+    <div id="form-signin-container" class="container" >
+
+        <form class="form-signin">
+            <h4 id="form-signin-notice">text</h4>
+            <h2 class="form-signin-heading">Sign in your account</h2>
+            
+            <input id="form-signin-username" type="text" class="form-control" placeholder="Email address">
+            <input id="form-signin-password" type="password" class="form-control" placeholder="Password">
+            <div class="btn btn-large btn-primary" onclick="document.login();">Sign in</div>
+            <div class="btn btn-large btn-primary" onclick="document.hideLogin();">Cancel</div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

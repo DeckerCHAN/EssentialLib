@@ -43,6 +43,7 @@ public class Page {
 	    StringBuilder responseString = new StringBuilder();
 	    String templateParent = "[%s]";
 	    String childTemplate = "{\"iconName\":\"%s\",\"title\":\"%s\",\"url\":\"%s\"},";
+
 	    for (Page page : Reactor.getReactor().getReactBundle()) {
 		for (int accept : page.getAcceptLevel()) {
 		    if (execotor.getType().getUserLevel() == accept) {
@@ -54,6 +55,7 @@ public class Page {
 			break;
 		    }
 		}
+
 	    }
 
 	    if (responseString.length() > 1) {
@@ -61,6 +63,7 @@ public class Page {
 			.substring(0, responseString.length() - 1));
 		new ResponseWriter(response).writeToResponse(res);
 	    }
+
 
 	    return true;
 	} catch (Exception e) {

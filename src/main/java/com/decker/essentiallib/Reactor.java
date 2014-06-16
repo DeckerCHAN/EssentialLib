@@ -30,13 +30,12 @@ public final class Reactor {
 
     private LinkedList<String> neutronModeratorContainer;
 
-    private LinkedList<Page> reactBundle;
 
+    private LinkedList<Page> reactBundle;
     private StaticFileReader resourceLocator;
     private HashMap<UUID, User> rodSet;
     private CommandSwitcher rodSwitcher;
     private HashMap<Integer, UserType> rodTypeSet;
-
     private Thread wasteCollect;
 
     /**
@@ -126,7 +125,6 @@ public final class Reactor {
     public HashMap<Integer, UserType> getRodTypeSet() {
 	return rodTypeSet;
     }
-
     public void injectNeutronModerator(String url) {
 	// Add Js url to list when url not already exists in list
 	for (String existModerator : this.neutronModeratorContainer) {

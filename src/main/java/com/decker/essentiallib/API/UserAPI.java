@@ -10,6 +10,7 @@ import com.decker.essentiallib.Reactor;
 import com.decker.essentiallib.UserType;
 
 public class UserAPI {
+
     public static void registerUserType(String typeName, int level) {
 	Reactor.getReactor().getRodTypeSet()
 		.put(level, new UserType(typeName, level));
@@ -33,5 +34,4 @@ public class UserAPI {
 			.keySet()));
 
     }
-
 }

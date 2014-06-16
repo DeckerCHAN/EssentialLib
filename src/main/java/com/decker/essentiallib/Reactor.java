@@ -30,15 +30,13 @@ public final class Reactor {
 
     private LinkedList<String> neutronModeratorContainer;
 
-    public LinkedList<String> getNeutronModeratorContainer() {
-	return neutronModeratorContainer;
-    }
+    private LinkedList<Page> reactBundle;
 
-    private HashMap<String, Page> reactBundle;
     private StaticFileReader resourceLocator;
     private HashMap<UUID, User> rodSet;
     private CommandSwitcher rodSwitcher;
     private HashMap<Integer, UserType> rodTypeSet;
+
     private Thread wasteCollect;
 
     /**
@@ -48,7 +46,7 @@ public final class Reactor {
 	// Initialize
 	this.resourceLocator = new StaticFileReader("Essentiallib");
 	this.rodSwitcher = new CommandSwitcher("Essentiallib");
-	this.reactBundle = new HashMap<String, Page>();
+	this.reactBundle = new LinkedList<Page>();
 	this.neutronModeratorContainer = new LinkedList<String>();
 	this.rodSet = new HashMap<UUID, User>();
 	this.rodTypeSet = new HashMap<Integer, UserType>();
@@ -85,20 +83,17 @@ public final class Reactor {
 	this.rodSwitcher.registerCommand("PreloadJs.exec",
 		Page.class.getName(), "getPreloadJS", 3);
 	// Add fixed page
-	this.reactBundle.put("Home", new Page("Home",
-		"./Template/Homepage.html", PageTitleIcon.HOME, new Integer[] {
-			0, 1, 2, 3 }));
+	this.reactBundle.add(new Page("Home",
+
+	"./Template/Homepage.html", PageTitleIcon.HOME,
+		new Integer[] { 1, 2, 3 }));
 	// Add fixed preloadJS
 	this.neutronModeratorContainer
 		.add("http://code.highcharts.com/highcharts.js");
     }
 
-    public HashMap<String, Page> getReactBundle() {
-	return reactBundle;
-    }
-
-    public void addFuelRod(String title, Page page) {
-	this.reactBundle.put(title, page);
+    public void addFuelRod( Page page) {
+	this.reactBundle.add(page);
     }
 
     public boolean addNewRodType(int rodLevel, String rodTypeName) {
@@ -114,6 +109,18 @@ public final class Reactor {
 	    return false;
 	}
 
+    }
+
+    public LinkedList<String> getNeutronModeratorContainer() {
+	return neutronModeratorContainer;
+    }
+
+    public LinkedList<Page> getReactBundle() {
+	return reactBundle;
+    }
+
+    public HashMap<UUID, User> getRodSet() {
+	return rodSet;
     }
 
     public HashMap<Integer, UserType> getRodTypeSet() {
@@ -133,7 +140,6 @@ public final class Reactor {
 
     public void riseRod(HttpServletRequest request, HttpServletResponse response)
 	    throws Exception {
-	System.out.println("A10");
 	User currentRod = null;
 	if (request.getCookies() != null) {
 	    for (Cookie cookie : request.getCookies()) {

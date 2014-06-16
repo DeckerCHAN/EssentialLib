@@ -1,5 +1,7 @@
 package com.decker.essentiallib;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,9 +43,13 @@ public class Page {
 	    StringBuilder responseString = new StringBuilder();
 	    String templateParent = "[%s]";
 	    String childTemplate = "{\"iconName\":\"%s\",\"title\":\"%s\",\"url\":\"%s\"},";
-	    for (Page page : Reactor.getReactor().getReactBundle().values()) {
+	    for (Page page : Reactor.getReactor().getReactBundle()) {
+		System.out.println(page.title);
+	    }
+	    for (Page page : Reactor.getReactor().getReactBundle()) {
 		for (int accept : page.getAcceptLevel()) {
 		    if (execotor.getType().getUserLevel() == accept) {
+
 			responseString
 				.append(String.format(childTemplate,
 					page.getIcon(), page.getTitle(),
@@ -51,12 +57,13 @@ public class Page {
 			break;
 		    }
 		}
-
 	    }
 
-	    String res = String.format(templateParent,
-		    responseString.substring(0, responseString.length() - 1));
-	    new ResponseWriter(response).writeToResponse(res);
+	    if (responseString.length() > 1) {
+		String res = String.format(templateParent, responseString
+			.substring(0, responseString.length() - 1));
+		new ResponseWriter(response).writeToResponse(res);
+	    }
 
 	    return true;
 	} catch (Exception e) {

@@ -44,9 +44,6 @@ public class Page {
 	    String templateParent = "[%s]";
 	    String childTemplate = "{\"iconName\":\"%s\",\"title\":\"%s\",\"url\":\"%s\"},";
 	    for (Page page : Reactor.getReactor().getReactBundle()) {
-		System.out.println(page.title);
-	    }
-	    for (Page page : Reactor.getReactor().getReactBundle()) {
 		for (int accept : page.getAcceptLevel()) {
 		    if (execotor.getType().getUserLevel() == accept) {
 
